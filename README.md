@@ -78,13 +78,13 @@ Sample - http://www.setgetweb.com/p/WAS85x/xx30.html
 
 4.	Run the app using liberty and test them
  
-####### To Start Application 
+##### To Start Application 
 
 ```
 clean install liberty:run
 ```
  
-####### To Stop Application
+##### To Stop Application
 
 ```
 clean install liberty:stop
