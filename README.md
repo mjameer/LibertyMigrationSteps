@@ -13,7 +13,7 @@ Refer here -> https://www.ibm.com/support/pages/verify-java-sdk-version-shipped-
 
 Refer here for more info -> https://learn.microsoft.com/en-us/azure/developer/java/ee/websphere-family 
  
-![image](https://github.com/mjameer/LibertyMigrationSteps/assets/11364104/dc84920e-4547-4644-9ff3-9fdf1f0297b3)
+![image](https://github.com/mjameer/LibertyMigrationSteps/assets/11364104/7136d1ba-72ec-4898-83c9-a3927bd64a75)
 
 3. IBM® WebSphere® Liberty is a modern, and ideal for building new cloud-native applications and modernizing existing applications. Liberty allows you to take advantage of cloud-centric environments and support for serverless or traditional deployments, in the cloud. So, in future, it’s easy to migrate an application hosted in Liberty to Azure.
 
