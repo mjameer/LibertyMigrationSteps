@@ -35,7 +35,8 @@ If you are planning to migrate to Liberty, then following are its steps
  
 1.	Mavenize the application, test it end to end if its working in existing WAS.
 
-   
+   ![image](https://github.com/mjameer/LibertyMigrationSteps/assets/11364104/1a834e0f-a87d-49e1-a72e-7848fc1b9eef)
+
 2. 	⁠Add the following plugin and configuration to your project.   
     
 ```
