@@ -41,7 +41,7 @@ If you are planning to migrate to Liberty, then the following are its steps
     
 ```
       <plugin>
-        <groupId>io.open liberty.tools</groupId>
+        <groupId>io.openliberty.tools</groupId>
         <artifactId>liberty-maven-plugin</artifactId>
         <version>3.5.1</version>
         <configuration>
