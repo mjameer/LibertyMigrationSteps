@@ -1,25 +1,25 @@
 ### Why Migrate Application to Liberty 
 
  
-#### We tend to migrate application to Liberty due to the following reasons. 
+#### We tend to migrate applications to Liberty due to the following reasons. 
  
  
-1. Even with the highest version of WAS, it has support only up to Java 8. Far I know IBM have no plan to enhance it further.  So, if Java 8 becomes out of complaint, then eventually you may need to choose another app server. 
+1. Even with the highest version of WAS, it has support only up to Java 8. Far I know IBM has no plan to enhance it further.  So, if Java 8 becomes out of complaint, then eventually you may need to choose another app server. 
 
 Refer here -> https://www.ibm.com/support/pages/verify-java-sdk-version-shipped-ibm-websphere-application-server-fix-packs. 
 	
 	
-2. Please be noted that WAS is not supported in AKS architecture, I can be used only in traditional VM.   
+2. Please note that WAS is not supported in AKS architecture, it can be used only in traditional VM.   
 
 Refer here for more info -> https://learn.microsoft.com/en-us/azure/developer/java/ee/websphere-family 
  
 ![image](https://github.com/mjameer/LibertyMigrationSteps/assets/11364104/7136d1ba-72ec-4898-83c9-a3927bd64a75)
 
-3. IBM® WebSphere® Liberty is a modern, and ideal for building new cloud-native applications and modernizing existing applications. Liberty allows you to take advantage of cloud-centric environments and support for serverless or traditional deployments, in the cloud. So, in future, it’s easy to migrate an application hosted in Liberty to Azure.
+3. IBM® WebSphere® Liberty is modern and ideal for building new cloud-native applications and modernizing existing applications. Liberty allows you to take advantage of cloud-centric environments and support for serverless or traditional deployments, in the cloud. So, in the future, it’s easy to migrate an application hosted in Liberty to Azure.
 
-4. IBM liberty is compatible with Oracle/Open and IBM JDK and can support up to Java 17. 
+4. IBM Liberty is compatible with Oracle/Open and IBM JDK and can support up to Java 17. 
 
-5. Finally Liberty eliminates the need of NDM server. 
+5. Finally Liberty eliminates the need for an NDM server. 
 
 ##### Additional Reference 
 
@@ -31,9 +31,9 @@ https://ac-gm-static-files-server.lahgrqm5xee.au-syd.codeengine.appdomain.cloud/
 ### LibertyMigrationSteps
 
 
-If you are planning to migrate to Liberty, then following are its steps
+If you are planning to migrate to Liberty, then the following are its steps
  
-1.	Mavenize the application, test it end to end if its working in existing WAS.
+1.	Mavenize the application, and test it end to end if it's working in existing WAS.
 
    ![image](https://github.com/mjameer/LibertyMigrationSteps/assets/11364104/1a834e0f-a87d-49e1-a72e-7848fc1b9eef)
 
@@ -41,7 +41,7 @@ If you are planning to migrate to Liberty, then following are its steps
     
 ```
       <plugin>
-        <groupId>io.openliberty.tools</groupId>
+        <groupId>io.open liberty.tools</groupId>
         <artifactId>liberty-maven-plugin</artifactId>
         <version>3.5.1</version>
         <configuration>
