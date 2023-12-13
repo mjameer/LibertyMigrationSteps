@@ -74,7 +74,104 @@ If you are planning to migrate to Liberty, then the following are its steps
 ```
 
 3.	Create server.xml under \src\main\liberty 
-Sample - http://www.setgetweb.com/p/WAS85x/xx30.html 
+a. Sample - http://www.setgetweb.com/p/WAS85x/xx30.html 
+
+b. For Springboot app
+
+```
+<server description="Liberty server">
+	<!-- Enable features -->
+	<featureManager>
+		<feature>servlet-3.1</feature>
+		<feature>jsp-2.3</feature>
+		<feature>jndi-1.0</feature>
+		<!-- <feature>jaxrs-2.1</feature> -->
+	</featureManager>
+
+	<httpEndpoint httpPort="${default.http.port}"
+		httpsPort="${default.https.port}" httpOptionsRef="defaultHttpOptions"
+		id="defaultHttpEndpoint" />
+
+	<httpOptions id="defaultHttpOptions"
+		maxKeepAliveRequests="-1" />
+
+	<webApplication id="appName" contextRoot="/appName"
+		location="appName-0.0.1-SNAPSHOT.war" />
+
+</server>
+```
+
+c. MsSQL DB via a non-Spring boot app
+
+```
+<server description="appName">
+	<featureManager>
+		<feature>servlet-3.1</feature>
+		<feature>jsp-2.3</feature>
+		<feature>jndi-1.0</feature>
+		<feature>jdbc-4.0</feature>
+	</featureManager>
+<logging
+traceSpecification="com.ibm.ws.webcontainer*=all:com.ibm.wsspi.webcontainer*=all:HTTPChannel=all :GenericBNF=all:HTTPDispatcher=all"
+		traceFileName="trace.log" maxFileSize="20" maxFiles="10"
+		traceFormat="BASIC" />
+	<httpEndpoint httpPort="${default.http.port}"
+		httpsPort="${default.https.port}" id="defaultHttpEndpoint" host="*" />
+
+
+	<library id="appNameJdbclib">
+		<file name="/lib/mssql-jdbc-6.4.0.jre8.jar" />
+	</library>
+
+	<dataSource id="appNameDS" jndiName="jdbc/appName_db">
+		<jdbcDriver libraryRef="appNameJdbclib" />
+		
+		<properties.microsoft.sqlserver databaseName="xxxxx" serverName="xxxx.cloud.com" 
+			portNumber="0000" user="xxxxx" password="xxxxx" />
+	</dataSource>
+	<webApplication id="appName" location="appName-0.0.1-SNAPSHOT.war" contextRoot="appName" />
+</server>
+```
+
+d. MsSQL Sample 2
+
+```
+<server description="appNameweb">
+	<featureManager>
+		<feature>servlet-3.1</feature>
+		<feature>jsp-2.3</feature>
+		<feature>jndi-1.0</feature>
+		<feature>jdbc-4.0</feature>
+	</featureManager>
+	
+	<httpDispatcher invokeFlushAfterService="false" />
+	
+<logging
+traceSpecification="com.ibm.ws.webcontainer*=all:com.ibm.wsspi.webcontainer*=all:HTTPChannel=all :GenericBNF=all:HTTPDispatcher=all"
+		traceFileName="trace.log" maxFileSize="20" maxFiles="10"
+		traceFormat="BASIC" />
+
+	<httpEndpoint httpPort="${default.http.port}"
+		httpsPort="${default.https.port}" httpOptionsRef="defaultHttpOptions"
+		id="defaultHttpEndpoint" />
+
+
+	<library id="appNamewebJdbclib">
+		<file name="C:\\lib\\someJar.jar" />
+	</library>
+
+	<dataSource id="appNamewebDS" jndiName="jdbc/appNameweb_db">
+		<jdbcDriver libraryRef="appNamewebJdbclib" />
+		<properties.microsoft.sqlserver
+			databaseName="xxxx" serverName="xxxx.cloud.com"
+			portNumber="1111" user="xxxx" password="xxxxx" />
+	</dataSource>
+	
+	<webApplication id="appNameweb" location="appNameweb-0.0.1-SNAPSHOT.war"
+		contextRoot="appName" />
+</server>
+```
+
 
 4.	Run the app using liberty and test them
  
